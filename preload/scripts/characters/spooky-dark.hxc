@@ -64,7 +64,7 @@ class SpookyDarkCharacter extends SparrowCharacter
     normalChar.alpha = 0.0001;
     normalChar.flipX = false;
 
-    PlayState.instance.currentStage.add(normalChar);
-    PlayState.instance.currentStage.refresh(); // Apply z-index.
+    if (!this.debug) PlayState.instance.currentStage.add(normalChar);
+    if (!this.debug) PlayState.instance.currentStage.refresh(); // Apply z-index.
   }
 }

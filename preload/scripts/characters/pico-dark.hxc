@@ -98,8 +98,8 @@ class PicoDarkCharacter extends MultiSparrowCharacter
 
     PauseSubState.musicSuffix = '-pico';
 
-    PlayState.instance.currentStage.add(normalChar);
-    PlayState.instance.currentStage.refresh(); // Apply z-index.
+    if (!this.debug) PlayState.instance.currentStage.add(normalChar);
+    if (!this.debug) PlayState.instance.currentStage.refresh(); // Apply z-index.
   }
 
   var deathSpriteRetry:FunkinSprite;
