@@ -238,29 +238,29 @@ class NeneChristmasCharacter extends SparrowCharacter
       abot.y = this.y + 216; // 764 - 740
       abot.zIndex = this.zIndex - 10;
 
-      PlayState.instance.currentStage.add(abot);
+      if (!this.debug) PlayState.instance.currentStage.add(abot);
 
       abotViz.x = abot.x + 200;
       abotViz.y = abot.y + 84;
       abotViz.zIndex = abot.zIndex - 1;
-      PlayState.instance.currentStage.add(abotViz);
+      if (!this.debug) PlayState.instance.currentStage.add(abotViz);
 
       eyeWhites.x = abot.x + 40;
       eyeWhites.y = abot.y + 250;
       eyeWhites.zIndex = abot.zIndex - 10;
-      PlayState.instance.currentStage.add(eyeWhites);
+      if (!this.debug) PlayState.instance.currentStage.add(eyeWhites);
 
       pupil.x = abot.x - 507;
       pupil.y = abot.y - 492;
       pupil.zIndex = eyeWhites.zIndex + 5;
-      PlayState.instance.currentStage.add(pupil);
+      if (!this.debug) PlayState.instance.currentStage.add(pupil);
 
       stereoBG.x = abot.x + 150;
       stereoBG.y = abot.y + 30;
       stereoBG.zIndex = abot.zIndex - 8;
-      PlayState.instance.currentStage.add(stereoBG);
+      if (!this.debug) PlayState.instance.currentStage.add(stereoBG);
 
-      PlayState.instance.currentStage.refresh();
+      if (!this.debug) PlayState.instance.currentStage.refresh();
       refershedLol = true;
     }
 
@@ -346,6 +346,7 @@ class NeneChristmasCharacter extends SparrowCharacter
 
   function shouldTransitionState():Bool
   {
+    if (this.debug) return false;
     return PlayState.instance.currentStage.getBoyfriend().characterId != "pico-blazin";
   }
 
